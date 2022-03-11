@@ -238,12 +238,14 @@ img {
   color: gray;
 }
 
-#liked{
+#liked,#liked-post-title{
   display: none;
 }
-#reported{
+#reported,#reported-post-title{
   display: none;
 }
+
+
 
 @media only screen and (max-width: 992px) {
   #posts {

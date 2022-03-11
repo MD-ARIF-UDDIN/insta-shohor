@@ -17,7 +17,10 @@ const isLiked = (id) => {
 
 const addToLiked = (id) => {
   likedPostsId.push(id);
-  showPosts(posts);
+  const remainingPosts = posts.filter(
+    (post) => !reportedPostsId.includes(post.id)
+  );
+  showPosts(remainingPosts);
 };
 
 const reportPost = (id) => {
@@ -39,22 +42,22 @@ const switchTab = (id) => {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
-    document.getElementById("liked-title").style.display = "none";
-    document.getElementById("reported-title").style.display = "none";
+    document.getElementById("liked-post-title").style.display = "none";
+    document.getElementById("reported-post-title").style.display = "none";
   } else if (id === "liked") {
     document.getElementById("liked").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
-    document.getElementById("liked-title").style.display = "block";
-    document.getElementById("reported-title").style.display = "none";
+    document.getElementById("liked-post-title").style.display = "block";
+    document.getElementById("reported-post-title").style.display = "none";
 
     displayLikedPosts();
   } else {
     document.getElementById("reported").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("liked").style.display = "none";
-    document.getElementById("liked-title").style.display = "none";
-    document.getElementById("reported-title").style.display = "block";
+    document.getElementById("liked-post-title").style.display = "none";
+    document.getElementById("reported-post-title").style.display = "block";
 
     displayReportedPosts();
   }
